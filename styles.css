@@ -1,0 +1,31 @@
+.Graphik-Regular-Web {
+  font-family: 'Graphik Web';
+  font-weight:  400;
+  font-style:   normal;
+  font-stretch: normal;
+  font-size: 12px;
+}
+
+.Graphik-Bold-Web {
+  font-family: 'Graphik Web';
+  font-weight:  700;
+  font-style:   normal;
+  font-stretch: normal;
+  font-size: 12px;
+}
+
+.Graphik-Regular-Web-large {
+  font-family: 'Graphik Web';
+  font-weight:  400;
+  font-style:   normal;
+  font-stretch: normal;
+  font-size: 20px;
+}
+
+.Graphik-Bold-Web-large {
+  font-family: 'Graphik Web';
+  font-weight:  700;
+  font-style:   normal;
+  font-stretch: normal;
+  font-size: 20px;
+}
