@@ -1,45 +1,3 @@
-<?php
-if(isset($_POST['submit'])) 
-{
-
-$message=
-'First Name:	'.$_POST['first_name'].'<br />
-Subject:	'.$_POST['subject'].'<br />
-Phone:	'.$_POST['phone'].'<br />
-Email:	'.$_POST['email'].'<br />
-Comments:	'.$_POST['comments'].'
-';
-    require "phpmailer/class.phpmailer.php"; //include phpmailer class
-      
-    // Instantiate Class  
-    $mail = new PHPMailer();  
-      
-    // Set up SMTP  
-    $mail->IsSMTP();                // Sets up a SMTP connection  
-    $mail->SMTPAuth = true;         // Connection with the SMTP does require authorization    
-    $mail->SMTPSecure = "ssl";      // Connect using a TLS connection  
-    $mail->Host = "smtp.gmail.com";  //Gmail SMTP server address
-    $mail->Port = 465;  //Gmail SMTP port
-    $mail->Encoding = '7bit';
-    
-    // Authentication  
-    $mail->Username   = "tamron@lookin.nz"; // Your full Gmail address
-    $mail->Password   = "1_@lookin1980"; // Your Gmail password
-      
-    // Compose
-    $mail->SetFrom($_POST['email'], $_POST['first_name']);
-    $mail->AddReplyTo($_POST['email'], $_POST['first_name']);
-    $mail->Subject = "New Contact Form Enquiry";      // Subject (which isn't required)  
-    $mail->MsgHTML($message);
- 
-    // Send To  
-    $mail->AddAddress("tamron@lookin.nz", "Recipient Name"); // Where to send it - Recipient
-    $result = $mail->Send();		// Send!  
-	$message = $result ? 'Successfully Sent!' : 'Sending Failed!';      
-	unset($mail);
-
-}
-?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -73,7 +31,7 @@ Comments:	'.$_POST['comments'].'
    
 <div class="container">
 
-    <form class="well form-horizontal" action="" method="post"  id="contact_form">
+    <form class="well form-horizontal" action="contact.php" method="post"  id="contact_form">
 <fieldset>
 
 <!-- Form Name -->
@@ -149,13 +107,7 @@ Comments:	'.$_POST['comments'].'
     <button type="submit" name="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
   </div>
 </div>
-<p><?php if(!empty($message)) echo $message; ?></p>		
-
-<!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap.min.js"></script>
-        <script src="js/validate-me.js"></script>				
+<p><?php if(!empty($message)) echo $message; ?></p>				
 
 </body>
 </html>
